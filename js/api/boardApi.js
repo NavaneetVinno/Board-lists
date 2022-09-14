@@ -47,8 +47,8 @@ export default class BoardAPI {
 		// item.textTitle = newProps.textTitle === undefined ? item.textTitle : newProps.textTitle;
 		// item.textBody = newProps.textBody === undefined ? item.textBody : newProps.textBody;
 
-		item.content.textTitle = newProps.textTitle === undefined ? item.content.textTitle : newProps.textTitle;
-		item.content.textBody = newProps.textBody === undefined ? item.content.textBody : newProps.textBody;
+		item.content = newProps.content === undefined ? item.content : newProps.content;
+		// item.content.textBody = newProps.textBody === undefined ? item.content.textBody : newProps.textBody;
 
 		// Update column and position
 		if (
