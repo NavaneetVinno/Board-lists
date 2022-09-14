@@ -1,4 +1,3 @@
-// import BoardAPI from "../api/boardApi.js";
 import Column from "./column.js";
 
 export default class Board {

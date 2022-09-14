@@ -1,5 +1,3 @@
-
-
 export default class BoardAPI {
 	static getItems(columnId) {
 		const column = read().find(column => column.id == columnId);
@@ -16,7 +14,8 @@ export default class BoardAPI {
 		const column = data.find(column => column.id == columnId);
 		const item = {
 			id: Math.floor(Math.random() * 100000),
-			content
+			
+			content 
 		};
 
 		if (!column) {
@@ -28,8 +27,6 @@ export default class BoardAPI {
 
 		return item;
 	}
-
-	
 
 	static updateItem(itemId, newProps) {
 		const data = read();
@@ -47,7 +44,11 @@ export default class BoardAPI {
 			throw new Error("Item not found.");
 		}
 
-		item.content = newProps.content === undefined ? item.content : newProps.content;
+		// item.textTitle = newProps.textTitle === undefined ? item.textTitle : newProps.textTitle;
+		// item.textBody = newProps.textBody === undefined ? item.textBody : newProps.textBody;
+
+		item.content.textTitle = newProps.textTitle === undefined ? item.content.textTitle : newProps.textTitle;
+		item.content.textBody = newProps.textBody === undefined ? item.content.textBody : newProps.textBody;
 
 		// Update column and position
 		if (
