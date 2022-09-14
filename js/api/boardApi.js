@@ -44,8 +44,7 @@ export default class BoardAPI {
 			throw new Error("Item not found.");
 		}
 
-		// item.textTitle = newProps.textTitle === undefined ? item.textTitle : newProps.textTitle;
-		// item.textBody = newProps.textBody === undefined ? item.textBody : newProps.textBody;
+
 
 		item.content = newProps.content === undefined ? item.content : newProps.content;
 		// item.content.textBody = newProps.textBody === undefined ? item.content.textBody : newProps.textBody;
