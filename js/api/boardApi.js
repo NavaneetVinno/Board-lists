@@ -8,6 +8,29 @@ export default class BoardAPI {
 
 		return column.items;
 	}
+	static getColumns(id){
+		const list = read().find(column => column.id === id);
+
+		if(!list){
+			return [];
+		}
+
+		return list;
+	}
+
+	static insertColumn(id,title){
+		const data = read();
+
+		const column = {
+			id,
+			items: [],
+			title,
+		}
+
+		let lists = data;
+		lists.push(column);
+		save(lists);
+	}
 
 	static insertItem(columnId, content) {
 		const data = read();
@@ -15,7 +38,8 @@ export default class BoardAPI {
 		const item = {
 			id: Math.floor(Math.random() * 100000),
 			
-			content 
+			content,
+		
 		};
 
 		if (!column) {
@@ -87,29 +111,29 @@ export default class BoardAPI {
 }
 
 function read() {
-	const json = localStorage.getItem("board--datas");
+	const json = localStorage.getItem("board");
 
-	if (!json) {
-		[
-			{
-				id: 1,
-				items: []
-			},
-			{
-				id: 2,
-				items: []
-			},
-			{
-				id: 3,
-				items: []
-			},
+	// if (!json) {
+	// 	[
+	// 		{
+	// 			id: 1,
+	// 			items: []
+	// 		},
+	// 		{
+	// 			id: 2,
+	// 			items: []
+	// 		},
+	// 		{
+	// 			id: 3,
+	// 			items: []
+	// 		},
 			
-		];
-	}
+	// 	];
+	// }
     console.log(json);
 	return JSON.parse(json);
 }
 
 function save(data) {
-	localStorage.setItem("board--datas", JSON.stringify(data));
+	localStorage.setItem("board", JSON.stringify(data));
 }

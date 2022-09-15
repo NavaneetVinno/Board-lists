@@ -17,32 +17,30 @@ export default class Column {
     this.elements.addItem =
       this.elements.root.querySelector(".board__add-item");
 
+    
+
     this.elements.root.dataset.id = id;
     this.elements.title.textContent = title;
     this.elements.items.appendChild(topDropZone);
 
     this.elements.addItem.addEventListener("click", () => {
       const btnItem = document.querySelector("#modal--button");
-	  if(btnItem){
-		btnItem.addEventListener('click', textFun);
-	  }
-	  
-	  
-	  function textFun(){
-		  
-		  
-		const textField = document.querySelector("#name-inp").value;
+      if (btnItem) {
+        btnItem.addEventListener("click", textFun);
+      }
 
-		const newItem = BoardAPI.insertItem(id, textField);
-		this.renderItem(newItem)
-		
-	  }
+      function textFun() {
+        const textField = document.querySelector("#name-inp").value;
+        const newItem = BoardAPI.insertItem(id, textField);
+        this.renderItem(newItem);
+      }
     });
 
-    const render = () => BoardAPI.getItems(id).forEach((item) => {
-      this.renderItem(item);
-    });
-	render();
+    const render = () =>
+      BoardAPI.getItems(id).forEach((item) => {
+        this.renderItem(item);
+      });
+    render();
   }
 
   static createRoot() {
@@ -64,5 +62,4 @@ export default class Column {
 
     this.elements.items.appendChild(item.elements.root);
   }
-
 }

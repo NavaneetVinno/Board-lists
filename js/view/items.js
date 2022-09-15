@@ -3,7 +3,7 @@ import BoardAPI from "../api/boardApi.js";
 
 
 export default class Item {
-	constructor(id, content) {
+	constructor(id, content, textBody) {
 		const bottomDropZone = DropZone.createDropZone();
 
 		this.elements = {};
@@ -18,9 +18,10 @@ export default class Item {
 		// 	textBody: textBody
 		// }
 		this.elements.root.dataset.id = id;
-		this.elements.input.textContent = content
-		// this.elements.inp.textContent = textBody
+		this.elements.input.textContent = content;
+		// this.elements.inp.textContent = textBody;
 		this.content = content
+		// this.textBody = textBody
 		
 		
 		this.elements.root.appendChild(bottomDropZone);
@@ -34,15 +35,21 @@ export default class Item {
 				this.elements.input.contentEditable = true;
 				this.elements.inp.contentEditable = true;
 				const newContent = this.elements.input.textContent.trim();
+				const newContent2 = this.elements.inp.textContent.trim();
 	
-				if (newContent == this.content) {
+				if (newContent == this.content 
+					// || newContent2 == this.textBody
+					) {
 					return;
 				}
 				this.content = newContent;
+				// this.textBody = newContent2;
 	
 				BoardAPI.updateItem(id, {
-					content: this.content
-				});
+					content: this.content,
+					// textBody: this.textBody,
+				}
+				);
 			}
 			this.elements.input.contentEditable = false;
 			this.elements.inp.contentEditable = false;
@@ -86,6 +93,7 @@ export default class Item {
 			<div class="board__item card" draggable="true">
 				<div class="card-body">
 					<div class="board__item-input card-title" ></div>
+					<div class="card-text"></div>
 					<div class="card-footer">
 						<button class="btn btn-sm btn-primary" id="edit-btn">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
