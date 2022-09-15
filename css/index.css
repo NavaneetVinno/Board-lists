@@ -1,6 +1,6 @@
 .board {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 30% 30% 30%;
   grid-row-gap: 20px;
   padding: 30px;
   width: 100%;
@@ -56,9 +56,27 @@
   width: 95%;
 }
 
+.card-title{
+  font-size: 20px;
+}
+
 .card-body {
   padding: 10px;
   background-color: #d2e3c1;
+}
+
+.card-footer{
+  height: 34px;
+}
+
+.icon{
+  width: 12px;
+  height: 12px;
+}
+
+.card-footer button{
+  width: fit-content;
+  border-radius: 50%;
 }
 
 #done-btn {
