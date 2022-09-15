@@ -36,7 +36,6 @@ export default class Column {
     });
 
     this.elements.deleteBtn.addEventListener("click", () => {
-      // BoardAPI.deleteItem(id);
       BoardAPI.deleteList(id)
 
       this.elements.root.parentElement.removeChild(this.elements.root);

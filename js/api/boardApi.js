@@ -52,6 +52,17 @@ export default class BoardAPI {
 		return item;
 	}
 
+	static updateList(listId, newProps){
+		const data = read();
+		const [item, current] = (() => {
+			const item = data.find(item => item.id == listId);
+
+			if(item){
+				return [item, column];
+			}
+		})
+	}
+
 	static updateItem(itemId, newProps) {
 		const data = read();
 		const [item, currentColumn] = (() => {
@@ -68,11 +79,8 @@ export default class BoardAPI {
 			throw new Error("Item not found.");
 		}
 
-
-
 		item.content = newProps.content === undefined ? item.content : newProps.content;
-		// item.content.textBody = newProps.textBody === undefined ? item.content.textBody : newProps.textBody;
-
+		
 		// Update column and position
 		if (
 			newProps.columnId !== undefined
