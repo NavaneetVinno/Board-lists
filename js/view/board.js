@@ -27,12 +27,8 @@ export default class Board {
 		BoardAPI.getColumns(column.id);
 	  })
 
-    //   arr.forEach((column) => {
-    //     new Column(column.id, column.title);
+	  
 
-    //     // this.root.appendChild(columnView.elements.root);
-    //     // this.root.appendChild(view.elements.root);
-    //   });
     }
     console.log(arr);
 

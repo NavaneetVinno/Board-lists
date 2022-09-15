@@ -94,6 +94,18 @@ export default class BoardAPI {
 		save(data);
 	}
 
+	static deleteList(listId){
+		const data = read();
+
+			const column = data.find(item => item.id == listId);
+			if(column){
+				data.splice(data.indexOf(column), 1);
+			}
+			console.log(column);
+		
+		save(data);
+	}
+
 	static deleteItem(itemId) {
 		const data = read();
 

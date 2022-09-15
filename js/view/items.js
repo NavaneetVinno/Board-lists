@@ -3,7 +3,7 @@ import BoardAPI from "../api/boardApi.js";
 
 
 export default class Item {
-	constructor(id, content, textBody) {
+	constructor(id, content) {
 		const bottomDropZone = DropZone.createDropZone();
 
 		this.elements = {};

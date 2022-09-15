@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-row-gap: 20px;
+  justify-content: space-between;
   padding: 30px;
   width: 100%;
   border-radius: 5px;
@@ -18,9 +19,7 @@
   border-radius: 10px;
 }
 
-.board__column:not(:last-child) {
-  margin-right: 30px;
-}
+
 
 .board__column-title {
   margin-left: 15px;
@@ -67,6 +66,7 @@
 
 .card-footer{
   height: 34px;
+  background-color: transparent;
 }
 
 .icon{
@@ -90,4 +90,12 @@
 
 .btn-clr-blue:hover {
   background-color: #07336b;
+}
+
+.delete-btn{
+  float: right;
+  border-radius: 50%;
+ 
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
